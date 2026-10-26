@@ -1,12 +1,12 @@
 {
   "id": "dsh-chatlock",
   "name": "DSH Chatlock",
-  "description": "给会话上密码锁（打开时弹窗验密），并把任意目录整体加密成保险箱；锁定后磁盘上只剩密文，文件名也看不出。",
+  "description": "给会话上密码锁，并把目录整体加密成保险箱，锁定后磁盘上只有密文。",
   "category": "watchlist",
-  "tags": ["隐私", "加密", "锁", "保险箱"],
+  "tags": ["隐私", "加密", "锁"],
   "verified": ["0.2.1-rc.3"],
-  "source": "npm",
-  "npm": "dsh-chatlock",
+  "source": "github",
   "github": "xevil3301/dsh-chatlock",
-  "homepage": "https://github.com/xevil3301/dsh-chatlock"
+  "homepage": "https://github.com/xevil3301/dsh-chatlock",
+  "icon": "https://raw.githubusercontent.com/xevil3301/dsh-chatlock/main/assets/icon-180.png"
 }

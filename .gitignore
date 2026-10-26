@@ -5,3 +5,9 @@ demo-vault/
 .DS_Store
 Thumbs.db
 dist/
+.registry-*.json
+.pr-*.json
+.pr-body.md
+.check-*.mjs
+.fix-*.mjs
+.validate-*.mjs
