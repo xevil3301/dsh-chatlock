@@ -1,0 +1,8 @@
+# dsh-chatlock bundle patch —— 把插件行插进 profile 的配置树。
+# 装上之后，profile 只要在 `dsh.profile.bundles` 里列出本包名即生效；
+# 本地开发时也可以直接把这四个字段抄进 profile 自己的 cordis.patch.yml。
+- insert:
+    - id: chatlock
+      name: dsh-chatlock
+      config:
+        enabled: true

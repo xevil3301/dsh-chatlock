@@ -1,0 +1,68 @@
+{
+  "name": "dsh-chatlock",
+  "version": "0.2.0",
+  "description": "DSH 聊天锁 / 保险箱：给私有会话上密码锁（打开会话时弹窗验密），并把工作区目录做成密码加密的保险箱（锁定后磁盘上只有密文，DSH 的文件工具也读不到明文）。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "cordis.patch.yml",
+    "install.mjs",
+    "assets",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xevil3301/dsh-chatlock.git"
+  },
+  "homepage": "https://github.com/xevil3301/dsh-chatlock#readme",
+  "bugs": {
+    "url": "https://github.com/xevil3301/dsh-chatlock/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "privacy",
+    "lock",
+    "vault",
+    "encryption"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-session"
+      ]
+    }
+  },
+  "scripts": {
+    "install:dsh": "node install.mjs",
+    "audit": "node scripts/audit.mjs",
+    "test": "node test/smoke.mjs && node test/host-fake.mjs && node test/client-wire.mjs",
+    "test:smoke": "node test/smoke.mjs",
+    "test:host": "node test/host-fake.mjs",
+    "test:client": "node test/client-wire.mjs",
+    "test:live": "node test/live-check.mjs",
+    "test:live:mutate": "node test/live-check.mjs --mutate"
+  },
+  "license": "MIT"
+}
