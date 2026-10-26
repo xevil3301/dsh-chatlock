@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      # host-fake 需要一份装进 profile 的副本，CI 里没有宿主，所以只跑不依赖 dsh 的两套。
+      - name: smoke（口令 / 授权 / 加解密往返）
+        run: node test/smoke.mjs
+      - name: client-wire（自注册与槽位接线）
+        run: node test/client-wire.mjs
+      - name: audit（死代码）
+        run: node scripts/audit.mjs

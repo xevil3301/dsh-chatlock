@@ -4,15 +4,18 @@
 
 ## 一、社区目录（4,000+ 条，装完就能搜到）
 
-市场的社区区读的是一个 npm 包 `dsh-plugin-catalog`，它是「全量目录」的快照，不是人工逐条审核的清单。
+市场的社区区读的是一个 npm 包 `dsh-plugin-catalog`（当前版本 `2026.1026.10371`）。它的源仓库是
+[awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)，站点
+[awesome-dsh-plugin.com](https://awesome-dsh-plugin.com)。它是「全量目录」的快照，不是人工逐条审核的清单。
+
 也就是说社区收录的门槛是「能被索引到」，而不是「被谁批准」。
 
 所以顺序是
 
-1. `npm publish` 一个公开包（包名建议就叫 `dsh-chatlock`）。
+1. `npm publish` 一个公开包（包名 `dsh-chatlock`，本仓库 2026-10-27 查过，名字还空着）。
 2. `package.json` 里必须有 `dsh` 字段（本仓库已经有 `dsh.bundle.patch` 与 `dsh.client`），
    `keywords` 里带 `dsh-plugin`——索引器靠这两个信号认出「这是一个 DSH 插件」而不是普通包。
-3. 等目录刷新（或者给 `dsh-plugin-catalog` 提 PR 加一条）。
+3. 等目录刷新。刷新不过来就去 `awesome-dsh-plugin` 仓库提 PR 加一条。
 
 发布前先确认名字没被占
 
@@ -20,12 +23,15 @@
 npm view dsh-chatlock version
 ```
 
-有输出就是被占了，换个名字（比如 `dsh-chatlock-pro`、`@你的scope/dsh-chatlock`），
+有输出就是被占了，换个名字（比如 `@你的scope/dsh-chatlock`），
 然后把 `package.json` 的 `name` 一起改掉——插件的 loader id 是 `chatlock`，和包名解耦，改名不影响已装用户。
 
-## 二、精选清单（人工策展，装机必备 / 崔添翼精选 / 自研 / 观察区）
+## 二、精选清单（人工策展）
 
 精选是 `iasiv5/dsh-m` 仓库里的 `registry.json`，人工审。给它提 PR 就是上精选的唯一入口。
+注意截至 2026-10-27，那份清单里 23 条**全部是 `"source": "npm"`**，没有 github 源的条目——
+所以「先发 npm」是这两条路共同的前提，绕不过去。
+
 
 一条合格的条目长这样（照抄本仓库 `docs/registry-entry.json` 再改）
 

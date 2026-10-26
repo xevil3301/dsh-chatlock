@@ -1,0 +1,28 @@
+name: publish
+
+# 推一个 v* tag 就发版。仓库里要有一个 NPM_TOKEN secret（npm 的 Automation token）。
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - name: 发版前先跑一遍硬性检查
+        run: |
+          node test/smoke.mjs
+          node test/client-wire.mjs
+          node scripts/audit.mjs
+      - name: publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
