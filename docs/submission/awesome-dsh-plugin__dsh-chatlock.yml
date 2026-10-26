@@ -1,0 +1,10 @@
+// 这是投给 awesome-dsh-plugin/awesome-dsh-plugin 的条目文件原样。
+// 投稿时把它放到该仓库的 data/plugins/xevil3301__dsh-chatlock.yml，一个文件就是全部投稿。
+// 注意该仓库有一条硬门槛：被收录的仓库必须建满 1 天，CI 自动检查。
+url: https://github.com/xevil3301/dsh-chatlock
+name: xevil3301/dsh-chatlock
+category: security
+description:
+  en: Session password lock plus an encrypted directory vault, both unlocked by one password.
+  zh: 给会话加密码锁，并把目录整体加密成保险箱，同一把密码解锁。
+icon: https://raw.githubusercontent.com/xevil3301/dsh-chatlock/main/assets/icon-180.png
