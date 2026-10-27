@@ -11,3 +11,4 @@ dist/
 .check-*.mjs
 .fix-*.mjs
 .validate-*.mjs
+.preview/
